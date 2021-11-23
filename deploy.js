@@ -16,6 +16,7 @@ const sleep = (ms) => {
       secretKey: payerAccount.secretKey,
     },
   });
+
   console.log("\n#2 Air drop money to Payer Account ...");
   const devnet = clusterApiUrl("devnet"); // "https://api.devnet.solana.com"
   const conn = new Connection(devnet);
@@ -35,6 +36,7 @@ const sleep = (ms) => {
       secretKey: programAccount.secretKey,
     },
   });
+
   console.log(
     "\n#4 Loading Program to Account : upload smart contract using BPF LOADER ..."
   );
