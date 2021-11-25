@@ -7,6 +7,9 @@ const sleep = (ms) => {
 };
 
 (async () => {
+  myArgs = process.argv.slice(2);
+  const fileName = myArgs[0];
+
   console.log("\n#1 Create Payer Account : who will pay for deployment");
   const payerAccount = new Keypair(); // can create from seed if want to deploy to mainnet.
   console.log({
@@ -40,7 +43,7 @@ const sleep = (ms) => {
   console.log(
     "\n#4 Loading Program to Account : upload smart contract using BPF LOADER ..."
   );
-  const program = await fs.readFile("./smartcontract.so");
+  const program = await fs.readFile(fileName);
   console.log({ program });
   await web3.BpfLoader.load(
     conn,
